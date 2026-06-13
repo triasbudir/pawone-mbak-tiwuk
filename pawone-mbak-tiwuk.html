@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pawone Mbak Tiwuk — Masakan Rumah, Rasa Surga</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coklat-tua: #2C1A0E;
+    --coklat-muda: #7B4B2A;
+    --kunyit: #E8A530;
+    --krem: #FBF5EC;
+    --daun: #4A6741;
+    --putih: #FFFFFF;
+    --abu: #9E8C7B;
+    --orange-hangat: #C96A2B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--krem);
+    color: var(--coklat-tua);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(44,26,14,0.92);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--kunyit);
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--kunyit); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--coklat-tua);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Batik-inspired decorative rings */
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border: 1.5px solid rgba(232,165,48,0.12);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 800px; height: 800px;
+    border: 1px solid rgba(232,165,48,0.07);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--kunyit);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    line-height: 1.05;
+    color: var(--putih);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--kunyit);
+  }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--abu);
+    margin: 20px 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    background: rgba(232,165,48,0.15);
+    border: 1px solid rgba(232,165,48,0.3);
+    color: var(--kunyit);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--abu);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+    z-index: 1;
+  }
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 32px;
+    background: var(--abu);
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* RATING STRIP */
+  .rating-strip {
+    background: var(--kunyit);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .rating-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--coklat-tua);
+  }
+  .rating-item strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* SECTION SHARED */
+  section {
+    padding: 80px 24px;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange-hangat);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    color: var(--coklat-tua);
+    margin-bottom: 16px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #5A4033;
+    margin-bottom: 16px;
+  }
+
+  .about-img-block {
+    position: relative;
+  }
+
+  .about-main-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--coklat-muda);
+  }
+
+  .food-visual {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+  }
+
+  .about-float {
+    position: absolute;
+    bottom: -24px;
+    left: -24px;
+    background: var(--kunyit);
+    padding: 20px 24px;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(44,26,14,0.2);
+  }
+  .about-float strong {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--coklat-tua);
+    font-family: 'Playfair Display', serif;
+  }
+  .about-float span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--coklat-tua);
+    opacity: 0.8;
+  }
+
+  /* MENU */
+  .menu-section {
+    background: var(--coklat-tua);
+  }
+  .menu-section .section-label { color: var(--kunyit); }
+  .menu-section .section-title { color: var(--putih); }
+
+  .menu-header {
+    max-width: 960px;
+    margin: 0 auto 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .menu-filter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 6px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(232,165,48,0.3);
+    background: transparent;
+    color: var(--abu);
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--kunyit);
+    color: var(--coklat-tua);
+    border-color: var(--kunyit);
+  }
+
+  .menu-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .menu-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .menu-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(232,165,48,0.3);
+  }
+
+  .card-img {
+    aspect-ratio: 4/3;
+    background: rgba(123,75,42,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-andalan {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--kunyit);
+    color: var(--coklat-tua);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 100px;
+  }
+
+  .card-body {
+    padding: 18px 20px;
+  }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--putih);
+    margin-bottom: 6px;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--abu);
+    margin-bottom: 16px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--kunyit);
+  }
+
+  .card-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--abu);
+    background: rgba(255,255,255,0.06);
+    padding: 3px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+
+  /* MINUMAN */
+  .drinks-grid {
+    max-width: 960px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .drink-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    transition: border-color 0.2s;
+  }
+  .drink-card:hover { border-color: rgba(232,165,48,0.25); }
+  .drink-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+  .drink-emoji { font-size: 1.3rem; }
+  .drink-price {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--kunyit);
+    white-space: nowrap;
+  }
+
+  /* JAM & LOKASI */
+  .info-section {
+    background: var(--krem);
+  }
+
+  .info-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .jam-list {
+    margin-top: 24px;
+  }
+  .jam-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(44,26,14,0.08);
+    font-size: 0.9rem;
+  }
+  .jam-row .hari { color: var(--coklat-muda); font-weight: 500; }
+  .jam-row .waktu { color: var(--coklat-tua); }
+  .jam-row .waktu.buka {
+    color: var(--daun);
+    font-weight: 600;
+  }
+
+  .lokasi-block {
+    margin-top: 24px;
+  }
+  .lokasi-block p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #5A4033;
+    margin-bottom: 20px;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--coklat-muda);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange-hangat);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 16px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--coklat-muda); }
+
+  /* TESTIMONIAL */
+  .testi-section {
+    background: #F2EAE0;
+  }
+
+  .testi-grid {
+    max-width: 960px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .testi-card {
+    background: var(--putih);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 16px rgba(44,26,14,0.06);
+  }
+
+  .testi-stars {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .testi-text {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #5A4033;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .testi-author {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--coklat-muda);
+  }
+  .testi-dish {
+    font-size: 0.75rem;
+    color: var(--abu);
+    margin-top: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--coklat-tua);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--kunyit);
+    margin-bottom: 8px;
+  }
+  footer p {
+    color: var(--abu);
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: var(--abu);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--kunyit); }
+
+  /* HIDDEN for filter */
+  .menu-card.hidden { display: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.78rem; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-block { order: -1; }
+    .about-float { bottom: -16px; left: -12px; }
+
+    .info-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .menu-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pawone Mbak Tiwuk</div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#info">Lokasi</a></li>
+    <li><a href="#ulasan">Ulasan</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow">Warung Makan Tradisional · Sleman, Yogyakarta</span>
+  <h1 class="hero-title">Pawone<br><em>Mbak Tiwuk</em></h1>
+  <p class="hero-sub">Masakan rumah, rasa yang selalu bikin kangen</p>
+  <div class="hero-badges">
+    <span class="badge">⭐ 4.6 Google Rating</span>
+    <span class="badge">🍜 Hidden Gem Jogja</span>
+    <span class="badge">🕖 Buka 06.00 – 19.00</span>
+    <span class="badge">💰 Harga Bersahabat</span>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- RATING STRIP -->
+<div class="rating-strip">
+  <div class="rating-item">⭐ <strong>4.6 / 5</strong> Rating Google</div>
+  <div class="rating-item">👥 <strong>66+</strong> Ulasan</div>
+  <div class="rating-item">🍚 <strong>Rp 5.000–25.000</strong> Per Porsi</div>
+  <div class="rating-item">📍 <strong>Jl. Kalijeruk</strong> Tamanmartani, Sleman</div>
+</div>
+
+<!-- ABOUT -->
+<section class="info-section" id="tentang">
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="section-label">Tentang Kami</span>
+      <h2 class="section-title">Pawone yang bikin<br>kamu mau balik lagi</h2>
+      <p>
+        Pawone Mbak Tiwuk adalah warung makan sederhana penuh cinta di Jalan Kalijeruk, Tamanmartani, Ngemplak, Sleman. 
+        Kami menyajikan masakan Jawa otentik — dari nasi brongkos gurih kelapan hingga soto sapi yang hangat mengenyangkan.
+      </p>
+      <p>
+        Hidden gem di pojok Sleman ini sudah dipercaya warga lokal bertahun-tahun. 
+        Suasana nyaman, pelayanan ramah, dan harga yang benar-benar bersahabat di kantong.
+      </p>
+      <p>
+        Buka setiap hari mulai pukul 06.00 pagi — cocok untuk sarapan, makan siang, sampai makan sore.
+      </p>
+    </div>
+    <div class="about-img-block">
+      <div class="about-main-img">
+        <div class="food-visual">🍲</div>
+      </div>
+      <div class="about-float">
+        <strong>Rp 1–25rb</strong>
+        <span>per orang kenyang</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div>
+      <span class="section-label">Daftar Menu</span>
+      <h2 class="section-title" style="color:var(--putih)">Pilih yang bikin<br>lidah bergoyang</h2>
+    </div>
+    <div class="menu-filter">
+      <button class="filter-btn active" onclick="filterMenu('semua', this)">Semua</button>
+      <button class="filter-btn" onclick="filterMenu('andalan', this)">Andalan</button>
+      <button class="filter-btn" onclick="filterMenu('nasi', this)">Nasi</button>
+      <button class="filter-btn" onclick="filterMenu('soto', this)">Soto & Kuah</button>
+      <button class="filter-btn" onclick="filterMenu('lauk', this)">Lauk</button>
+      <button class="filter-btn" onclick="filterMenu('gorengan', this)">Gorengan</button>
+    </div>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <!-- NASI BRONGKOS -->
+    <div class="menu-card" data-cat="nasi andalan">
+      <div class="card-img" style="background:linear-gradient(135deg,#3D1F0A,#7B4B2A)">
+        🍲
+        <span class="card-andalan">★ Andalan</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Nasi Brongkos</div>
+        <div class="card-desc">Nasi putih hangat dengan kuah brongkos hitam pekat kaya kluwak, daging sapi empuk, tahu, tempe bacem & kacang tolo. Khas Jogja.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 12.000</span>
+          <span class="card-tag">Favorit</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOTO SAPI -->
+    <div class="menu-card" data-cat="soto andalan">
+      <div class="card-img" style="background:linear-gradient(135deg,#5C3A1E,#A0672A)">
+        🥣
+        <span class="card-andalan">★ Andalan</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Soto Sapi</div>
+        <div class="card-desc">Kuah soto bening gurih dengan potongan daging sapi empuk, tauge, soun, dan irisan daun bawang. Hangat dan menyegarkan.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 12.000</span>
+          <span class="card-tag">Soto & Kuah</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOTO AYAM -->
+    <div class="menu-card" data-cat="soto andalan">
+      <div class="card-img" style="background:linear-gradient(135deg,#7B5A2A,#C08030)">
+        🍜
+        <span class="card-andalan">★ Andalan</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Soto Ayam</div>
+        <div class="card-desc">Soto ayam kampung dengan kuah kuning harum kunyit, suwiran ayam, telur, dan pelengkap sambal kecap. Cocok buat sarapan.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 10.000</span>
+          <span class="card-tag">Soto & Kuah</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NASI PECEL -->
+    <div class="menu-card" data-cat="nasi andalan">
+      <div class="card-img" style="background:linear-gradient(135deg,#2E5A1F,#4A8A30)">
+        🥬
+        <span class="card-andalan">★ Andalan</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Nasi Pecel</div>
+        <div class="card-desc">Nasi putih dengan sayuran rebus segar, disiram bumbu kacang khas Jawa yang pedas-manis. Ditambah kerupuk renyah.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 8.000</span>
+          <span class="card-tag">Favorit Pagi</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AYAM GORENG -->
+    <div class="menu-card" data-cat="lauk andalan">
+      <div class="card-img" style="background:linear-gradient(135deg,#8A4A10,#C87020)">
+        🍗
+        <span class="card-andalan">★ Andalan</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Ayam Goreng</div>
+        <div class="card-desc">Ayam kampung diungkep rempah lalu digoreng renyah keemasan. Disajikan dengan sambal bawang dan lalapan segar.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 15.000</span>
+          <span class="card-tag">Lauk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NASI GUDEG -->
+    <div class="menu-card" data-cat="nasi">
+      <div class="card-img" style="background:linear-gradient(135deg,#6B3A20,#A06030)">
+        🌾
+      </div>
+      <div class="card-body">
+        <div class="card-name">Nasi Gudeg</div>
+        <div class="card-desc">Gudeg nangka muda masak manis ala Jogja, disajikan dengan areh, ayam suwir, dan sambal krecek yang legit.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 12.000</span>
+          <span class="card-tag">Nasi</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPE BACEM -->
+    <div class="menu-card" data-cat="lauk">
+      <div class="card-img" style="background:linear-gradient(135deg,#4A3010,#7A5020)">
+        🫘
+      </div>
+      <div class="card-body">
+        <div class="card-name">Tempe & Tahu Bacem</div>
+        <div class="card-desc">Tempe dan tahu dimasak bacem dengan bumbu kecap manis, ketumbar, dan rempah pilihan hingga meresap sempurna.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 3.000</span>
+          <span class="card-tag">Lauk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GORENGAN -->
+    <div class="menu-card" data-cat="gorengan">
+      <div class="card-img" style="background:linear-gradient(135deg,#6A4010,#B07030)">
+        🧆
+      </div>
+      <div class="card-body">
+        <div class="card-name">Gorengan</div>
+        <div class="card-desc">Pisang goreng, tempe goreng, tahu goreng, bakwan sayur — digoreng fresh tiap hari, crispy di luar lembut di dalam.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 1.000 – 3.000</span>
+          <span class="card-tag">Gorengan</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TELUR CEPLOK / DADAR -->
+    <div class="menu-card" data-cat="lauk">
+      <div class="card-img" style="background:linear-gradient(135deg,#8A6010,#C8A030)">
+        🍳
+      </div>
+      <div class="card-body">
+        <div class="card-name">Telur Ceplok / Dadar</div>
+        <div class="card-desc">Lauk pelengkap favorit — telur ayam digoreng mata sapi atau dadar. Bisa pilih matang atau setengah matang.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 4.000</span>
+          <span class="card-tag">Lauk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAYUR LODEH -->
+    <div class="menu-card" data-cat="nasi lauk">
+      <div class="card-img" style="background:linear-gradient(135deg,#1E4A2A,#3A7A40)">
+        🥘
+      </div>
+      <div class="card-body">
+        <div class="card-name">Sayur Lodeh</div>
+        <div class="card-desc">Sayuran segar (labu siam, kacang panjang, terong) dimasak santan gurih dengan bumbu rempah Jawa yang sedap.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 5.000</span>
+          <span class="card-tag">Sayuran</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KERUPUK / PELENGKAP -->
+    <div class="menu-card" data-cat="gorengan">
+      <div class="card-img" style="background:linear-gradient(135deg,#7A5A3A,#AA8050)">
+        🫓
+      </div>
+      <div class="card-body">
+        <div class="card-name">Kerupuk & Pelengkap</div>
+        <div class="card-desc">Kerupuk udang, rempeyek kacang, sambal korek, lalapan, dan pelengkap lain untuk melengkapi hidangan utama.</div>
+        <div class="card-footer">
+          <span class="card-price">Rp 500 – 2.000</span>
+          <span class="card-tag">Pelengkap</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MINUMAN -->
+  <div style="max-width:960px;margin:48px auto 0;">
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--putih);margin-bottom:8px;">Minuman</h3>
+    <p style="color:var(--abu);font-size:0.85rem;margin-bottom:20px;">Segar pelengkap makan</p>
+    <div class="drinks-grid">
+      <div class="drink-card">
+        <span class="drink-emoji">🍵</span>
+        <span class="drink-name">Teh Manis</span>
+        <span class="drink-price">Rp 2.000</span>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">☕</span>
+        <span class="drink-name">Kopi</span>
+        <span class="drink-price">Rp 3.000</span>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🥛</span>
+        <span class="drink-name">Susu Hangat</span>
+        <span class="drink-price">Rp 4.000</span>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🧊</span>
+        <span class="drink-name">Es Teh</span>
+        <span class="drink-price">Rp 3.000</span>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">🫙</span>
+        <span class="drink-name">Jamu Rempah</span>
+        <span class="drink-price">Rp 3.000</span>
+      </div>
+      <div class="drink-card">
+        <span class="drink-emoji">💧</span>
+        <span class="drink-name">Air Putih</span>
+        <span class="drink-price">Gratis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAM & LOKASI -->
+<section class="info-section" id="info">
+  <div class="info-grid">
+    <div>
+      <span class="section-label">Jam Buka</span>
+      <h2 class="section-title">Kapan bisa mampir?</h2>
+      <div class="jam-list">
+        <div class="jam-row">
+          <span class="hari">Senin – Jumat</span>
+          <span class="waktu buka">06.00 – 19.00</span>
+        </div>
+        <div class="jam-row">
+          <span class="hari">Sabtu</span>
+          <span class="waktu buka">06.00 – 19.00</span>
+        </div>
+        <div class="jam-row">
+          <span class="hari">Minggu</span>
+          <span class="waktu buka">06.00 – 19.00</span>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:0.82rem;color:var(--abu);line-height:1.6;">
+        ⚡ Menu tertentu (brongkos, gudeg) bisa <strong>habis sebelum jam tutup</strong>. Datang lebih pagi untuk hasil terbaik!
+      </p>
+    </div>
+    <div class="lokasi-block">
+      <span class="section-label">Lokasi</span>
+      <h2 class="section-title">Cara ke sini</h2>
+      <p>
+        📍 <strong>Jl. Grogolan Kalijeruk</strong><br>
+        Kalijeruk, Widodomartani, Ngemplak<br>
+        Sleman, D.I. Yogyakarta
+      </p>
+      <div class="map-placeholder">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.4!2d110.4!3d-7.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDInMDAuMCJTIDExMMKwMjQnMDAuMCJF!5e0!3m2!1sid!2sid!4v1234567890"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <a href="https://maps.app.goo.gl/ofASgXcRR4n7Xmq36" target="_blank" class="btn-primary">
+        🗺️ Buka di Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ULASAN -->
+<section class="testi-section" id="ulasan">
+  <div style="max-width:960px;margin:0 auto;">
+    <span class="section-label">Kata Mereka</span>
+    <h2 class="section-title">Sudah dicicipi,<br>sudah membuktikan</h2>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Hidden gem! Beneran tempat makan di daerah Jogja dengan harga yang bersahabat banget. Makanannya enak, suasananya nyaman. Pasti balik lagi."</p>
+        <div class="testi-author">Pengunjung via Google Maps</div>
+        <div class="testi-dish">Menu: Nasi Brongkos, Soto Sapi</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Tempat sarapan paling komplit di daerah sini. Favoritku nasi pecel dan brongkos. Pelayanannya ramah, cepat, harga super murah."</p>
+        <div class="testi-author">@agusjuliand via Threads</div>
+        <div class="testi-dish">Menu: Nasi Pecel, Nasi Brongkos</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Dine in yang menyenangkan! Makanannya enak, tempatnya comfortable, pelayanan friendly. Ayam goreng di sini juara."</p>
+        <div class="testi-author">Pengunjung via Google Maps</div>
+        <div class="testi-dish">Menu: Ayam Goreng, Soto Ayam</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:48px;text-align:center;padding:40px;background:var(--coklat-tua);border-radius:8px;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--putih);margin-bottom:8px;">Belum pernah coba?</h3>
+      <p style="color:var(--abu);margin-bottom:24px;font-size:0.9rem;">Mampir sekarang — perut kenyang, kantong aman.</p>
+      <a href="https://maps.app.goo.gl/ofASgXcRR4n7Xmq36" target="_blank" class="btn-primary" style="font-size:1rem;padding:14px 32px;">
+        📍 Temukan Lokasinya
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Pawone Mbak Tiwuk</div>
+  <p>Jl. Grogolan Kalijeruk, Widodomartani, Ngemplak, Sleman, D.I. Yogyakarta<br>Buka setiap hari · 06.00 – 19.00</p>
+  <div class="footer-links">
+    <a href="https://maps.app.goo.gl/ofASgXcRR4n7Xmq36" target="_blank">Google Maps</a>
+    <a href="#menu">Menu</a>
+    <a href="#info">Lokasi & Jam</a>
+    <a href="#ulasan">Ulasan</a>
+  </div>
+  <p style="margin-top:20px;font-size:0.72rem;opacity:0.4;">© 2025 Pawone Mbak Tiwuk</p>
+</footer>
+
+<script>
+  function filterMenu(cat, btn) {
+    // Update button states
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Filter cards
+    document.querySelectorAll('.menu-card').forEach(card => {
+      if (cat === 'semua') {
+        card.classList.remove('hidden');
+      } else {
+        const cats = card.dataset.cat || '';
+        if (cats.includes(cat)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      }
+    });
+  }
+
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.menu-card, .testi-card, .drink-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
